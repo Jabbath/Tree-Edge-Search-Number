@@ -189,7 +189,9 @@ def info(tree, root):
     degree = nx.degree(tree, root)
     
     #Use reroot if the deg is 1 and merges otherwise
-    if degree == 1:
+    if degree == 0:
+        treeInfo = ['H', 1, None]    
+    elif degree == 1:
 
         #A single edge has search number = 1
         if isEdge(tree):
@@ -224,12 +226,12 @@ def computeInfo(tree):
 
     #Make the root the first node
     root = tree.nodes()[0]
+    print root
     
     #Get the info for tree
     information = info(tree, root)
 
     return information
 
-G = nx.Graph()
-G.add_edge('1','2')
+G = nx.read_multiline_adjlist('tests/doubling/1.adjlist')
 print computeInfo(G)
