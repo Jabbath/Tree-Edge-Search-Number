@@ -226,10 +226,24 @@ def computeInfo(tree):
 
     #Make the root the first node
     root = tree.nodes()[0]
-    print root
     
     #Get the info for tree
     information = info(tree, root)
 
     return information
 
+def edgeSearch(tree):
+    '''
+    Returns the search number of an inputed tree.
+
+    INPUT
+    tree: A networkx tree graph
+
+    OUTPUT
+    searchNumber: The search number of tree
+    '''
+    
+    information = computeInfo(tree)
+    searchNumber = information[1]
+
+    return searchNumber
