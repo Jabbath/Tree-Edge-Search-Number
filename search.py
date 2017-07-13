@@ -233,5 +233,5 @@ def computeInfo(tree):
 
     return information
 
-G = nx.read_multiline_adjlist('tests/doubling/1.adjlist')
+G = nx.read_multiline_adjlist('tests/doubling/63.adjlist')
 print computeInfo(G)
