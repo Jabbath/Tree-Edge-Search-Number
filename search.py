@@ -112,9 +112,65 @@ def merge(info1, info2):
     OUTPUT
     mergedInfo: The merged info records
     '''
-    #Check if the search numbers are equal
-    if info1[1] == info2[1]:
+    #Extract the search numbers, types and M-info
+    type1 = info1[0]
+    type2 = info2[0]
+    s1 = info1[1]
+    s2 = info2[1]
+    Minfo1 = info1[2]
+    Minfo2 = info2[2]
+
+    #Check if the search numbers are equal and test cases 1-5
+    if s1 == s2:
+        if type1 == 'H' and type2 == 'H':
+            mergedInfo = ['H', s1, None]
+        elif (type1 == 'H' and type2 == 'E') or \
+        (type1 == 'E' and type2 == 'H'):
+            mergedInfo = ['E', s1, None]
+        elif type1 == 'E' and type2 == 'E':
+            mergedInfo = ['I', s1, None]
+        elif (type1 == 'I' and type2 == 'H') or \
+        (type1 == 'H' and type2 == 'I'):
+            mergedInfo = ['I', s1, None]
+        elif type1 == 'M' or type2 == 'M':
+            mergedInfo = ['H', s1 + 1, None]
+        elif type1 == 'I' and type2 == 'I':
+            mergedInfo = ['H', s1 + 1, None]
+        elif (type1 == 'I' and type2 == 'E') or \
+        (type1 == 'E' and type2 == 'I'):
+            mergedInfo = ['H', s1 + 1, None]
+    elif s1 > s2:
+        #Do cases 6-7 for s1>s2
         
+        if type1 == 'H' or type1 == 'E' or type1 == 'I':
+            mergedInfo = [type1, s1, None]
+        elif type1 == 'M':
+            
+            #Merge the two info records
+            MinfoMerge = merge(Minfo1, info2)
+            sPrime = MinfoMerge[1]
+
+            if sPrime < s1:
+                mergedInfo = ['M', s1, MinfoMerge]
+            elif sPrime == s1:
+                mergedInfo = ['H', s1 + 1, None]
+    elif s2 > s1:
+        #Do cases 6-7 for s2>s1
+        
+        if type2 == 'H' or type2 == 'E' or type2 == 'I':
+            mergedInfo = [type2, s2, None]
+        elif type2 == 'M':
+            
+            #Merge the two info records
+            MinfoMerge = merge(Minfo2, info1)
+            sPrime = MinfoMerge[1]
+
+            if sPrime < s2:
+                mergedInfo = ['M', s2, MinfoMerge]
+            elif sPrime == s2:
+                mergedInfo = ['H', s2 + 1, None]
+
+    return mergedInfo
 
 def info(tree, root):
     '''
@@ -176,3 +232,4 @@ def computeInfo(tree):
 
 G = nx.Graph()
 G.add_edge('1','2')
+print computeInfo(G)
