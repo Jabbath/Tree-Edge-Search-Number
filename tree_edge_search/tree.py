@@ -232,7 +232,7 @@ def computeInfo(tree):
 
     return information
 
-def edgeSearch(tree):
+def edge_search(tree):
     '''
     Returns the search number of an inputed tree.
 
