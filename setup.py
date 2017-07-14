@@ -10,7 +10,7 @@ setup(
     author = 'Anton Afanassiev',
     author_email = 'antonafana@yahoo.ca',
     url = 'https://github.com/Jabbath/Tree-Edge-Search-Number',
-    download_url = 'https://github.com/Jabbath/Tree-Edge-Search-Number/archive/1.0.0.tar.gz',
+    download_url = 'https://github.com/Jabbath/Tree-Edge-Search-Number/archive/1.0.1.tar.gz',
     keywords = ['graph', 'theory', 'search', 'number', 'edge',  'pursuit', 'evasion', 'tree'],
     classifiers = ['Development Status :: 5 - Production/Stable'],
     install_requires = ['networkx']
