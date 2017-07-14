@@ -7,13 +7,13 @@ This is a NetworkX graph theory package that calculates the edge search number o
 First, install the package with:
 
 ```
-pip install tree-search-number
+pip install tree-edge-search
 ```
 
 Then, similar code to the below can be used to calculate the search number of a tree. Note that the package does not check if the passed graph is a tree. Whether the graph is a tree should be checked to ensure correct behavior.
 
 ```python
-from tree_search_number.tree import edge_search
+from tree_edge_search.tree import edge_search
 import networkx as nx
 
 G = nx.balanced_tree(2, 4)
