@@ -12,7 +12,7 @@ pip install tree-search-number
 
 Then, similar code to the below can be used to calculate the search number of a tree. Note that the package does not check if the passed graph is a tree. Whether the graph is a tree should be checked to ensure correct behavior.
 
-```
+```python
 from tree_search_number.tree import edge_search
 import networkx as nx
 
